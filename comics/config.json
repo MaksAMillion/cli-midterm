@@ -1,3 +1,4 @@
 {
-    "url": "http://www.comicvine.com/api/"
+    "url": "https://comicvine.gamespot.com/api",
+    "apiKey": "9498a9126520c01be2793d049154fb19cf9282af"
 }

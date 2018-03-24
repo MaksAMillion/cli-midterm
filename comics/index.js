@@ -1,10 +1,9 @@
 const
     config = require('./config'),
-    superagent = require('superagent'),
-    apiKey = "9498a9126520c01be2793d049154fb19cf9282af"
-
+    superagent = require('superagent')
+    
 const _fetch = (resource,command) => {
-    return superagent.get(`${config.url}/${resource}/?api_key=${apiKey}&format=json&${command}`)
+    return superagent.get(`${config.url}/${resource}/?api_key=${config.apiKey}&format=json&${command}`)
         .then(response => response.body)
         .catch(error => error.response.body)
 }

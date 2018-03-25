@@ -12,9 +12,6 @@ const search = (movie) => {
                 const myMovie = []
                 myMovie.push(element.id)
                 myMovie.push(element.name)
-                myMovie.push(element.budget)
-                myMovie.push(element.deck)
-                myMovie.push(element.runtime)
                 
                 myMovies.push(myMovie)
                 myMovieNames.push(myMovie[1])
@@ -23,14 +20,21 @@ const search = (movie) => {
             return inquirer.prompt([{
                 type: 'list',
                 message: `select a movie to see more details(${myMovieNames.length} results).`,
-                name: 'movies',
-                choices: myMovieNames,
-                validate: (answer) => {
-                    return true
-                }
+                name: 'movie',
+                choices: myMovieNames
             }])
-            .then(() => {
-                console.log("this is the then part")
+            .then((answers) => {
+                let id = -1
+                
+                myMovies.forEach(element =>
+                {
+                    if (answers.movie === element[1])
+                    {
+                        id = element[0]
+                    }
+                })
+
+                fetchDetails(id);
             })
             .catch(error => {
                 console.log(error)
@@ -39,15 +43,35 @@ const search = (movie) => {
         .catch(error => {
             console.log(error)
         })
-
-    
 }
 
-const fetchByID = () => {
-
+const fetchDetails = (movieID) => {
+    comics.movieDetails(movieID)
+    .then(result => {
+        result.results.forEach(element => {
+            console.log("\n==================== Movie Details ===============")
+            console.log(`Movie Name: \t${element.name}`)
+            console.log(`ID: \t\t${element.id}`)
+            
+            if (element.budget === null)
+            {
+                console.log("Budget: \tBudget is not disclosed")
+            }
+            else
+            {
+                console.log(`Budget: \t${element.budget}`)
+            }
+            console.log(`Summary: \t${element.deck}`)
+            console.log(`Runtime: \t${element.runtime} minutes`)
+            
+        })
+        // console.log(result)
+    })
+    .catch(error => {
+        console.log(error)
+    })
 }
 
 module.exports = {
-    search,
-    fetchByID
+    search
 }

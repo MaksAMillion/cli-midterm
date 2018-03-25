@@ -17,10 +17,6 @@ exports.search = (resource,query) =>{
     return _fetch("search",`query=${query}&resources=${resource}&field_list=name`)
 }
 
-exports.searchCharacter = (resource, query) => {
-    return _fetch("search", `query=${query}&resources=${resource}&field_list=id,name,real_name`)
-}
-
 //For now I only put to display the name of the movie, budget, summary and total length of the movie.
 //Let me know what to add 
 //Use the fields part of movies
@@ -29,9 +25,12 @@ exports.searchCharacter = (resource, query) => {
 //example url
 //https://comicvine.gamespot.com/api/movies/?api_key=9498a9126520c01be2793d049154fb19cf9282af&format=json&field_list=name,budget,deck,runtime&filter=name:inception
 exports.movies =(query)=>{
-    return _fetch("movies",`field_list=id,name,budget,deck,runtime&filter=name:${query}`)
+    return _fetch("movies",`field_list=id,name&filter=name:${query}`)
 }
 
+exports.movieDetails = ( query) => {
+    return _fetch("movies",`field_list=id,name,budget,deck,runtime&filter=id:${query}`)
+}
 
 //Same as movies kinda only showing name,gender, summary, and real name
 exports.characters=(query)=>{

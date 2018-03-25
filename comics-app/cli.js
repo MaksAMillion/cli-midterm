@@ -4,9 +4,9 @@ const
 
 const flags = yargs.usage('$0: Usage <cmd> [options]')
     .command({
-        command: ('search <movie>'),
-        desc: 'searches for the movie followed by the search command ',
-        handler: (argv) => {app.search(argv.movie)}
+        command: ('search <movies>'),
+        desc: 'searches for the movies the character is in ',
+        handler: (argv) => {app.search(argv.movies)}
     })
     .help('help')
     .argv

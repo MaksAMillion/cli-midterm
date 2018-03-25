@@ -17,6 +17,10 @@ exports.search = (resource,query) =>{
     return _fetch("search",`query=${query}&resources=${resource}&field_list=name`)
 }
 
+exports.searchCharacter = (resource, query) => {
+    return _fetch("search", `query=${query}&resources=${resource}&field_list=id,name,character_friends`);
+} 
+
 //For now I only put to display the name of the movie, budget, summary and total length of the movie.
 //Let me know what to add 
 //Use the fields part of movies

@@ -1,0 +1,16 @@
+{
+  "name": "comics-app",
+  "version": "1.0.0",
+  "description": "app for cli-comics api",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Allen, Ana, Leo, Max",
+  "license": "MIT",
+  "dependencies": {
+    "comics": "file:../comics",
+    "inquirer": "^5.1.0",
+    "yargs": "^11.0.0"
+  }
+}

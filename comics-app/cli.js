@@ -18,9 +18,9 @@ const flags = yargs.usage('$0: Usage <cmd> [options]')
         handler: (argv) => { app.draw(argv.shuffle, argv.number) }
     })
     .command({
-        command: ('search <character>'),
-        desc: 'searches for the item followed by the search command ',
-        handler: (argv) => {app.search(argv.character)}
+        command: ('search <movie>'),
+        desc: 'searches for the movie followed by the search command ',
+        handler: (argv) => {app.search(argv.movie)}
     })
     .help('help')
     .argv

@@ -33,5 +33,5 @@ exports.characters=(query)=>{
 }
 
 exports.charactersDetails=(query)=>{
-    return _fetch("characters",`field_list=name,gender,deck,teams,real_name,id&filter=id:${query}`)
+    return _fetch("characters",`field_list=name,gender,deck,teams,real_name,id&filter=name:${query}`)
 }

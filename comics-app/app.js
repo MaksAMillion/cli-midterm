@@ -136,7 +136,8 @@ const charsearch = (character) =>{
         console.log(error)
     })
     }
-    const fetchCharDetails = (characterID) =>{
+
+const fetchCharDetails = (characterID) =>{
         comics.charactersDetails(characterID)
         .then(result => {
             result.results.forEach(element =>{
@@ -152,6 +153,7 @@ const charsearch = (character) =>{
                 console.log(error)
             })
         }
+
 
 
 module.exports = {

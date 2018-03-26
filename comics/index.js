@@ -29,5 +29,9 @@ exports.movieDetails = ( query) => {
 
 //Same as movies kinda only showing name,gender, summary, and real name
 exports.characters=(query)=>{
-    return _fetch("characters",`field_list=name,gender,deck,teams,real_name&filter=name:${query}`)
+    return _fetch("characters",`field_list=id,name,gender,deck,teams,real_name&filter=name:${query}`)
+}
+
+exports.charactersDetails=(query)=>{
+    return _fetch("characters",`field_list=name,gender,deck,teams,real_name,id&filter=id:${query}`)
 }
